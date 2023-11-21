@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="images/cinema.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Bungee&family=Mate+SC&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    <title>Cinema Star</title>
+</head>
+<body> 
+   
+    <header class=" bg-red-700 flex  flex-wrap items-center justify-center h-26 md:space-x-96 ">
+        <div class="flex items-center md:mx-10 gap-4">
+            <img src="images/cinema.png" class="w-20 h-20 object-contain md:mx-2" alt="logo">
+            <h1 id="letra" class="text-3xl md:text-5xl">Cinema Star</h1>
+        </div>
+            
+        
+            <nav class="flex gap-4 text-2xl font-bold md:gap-8 " id="fuente">
+                <a href="index.html" class="rounded-lg bg-red-500"  >Home</a>
+                <a href="movies.html" >Movies</a>
+                <a href="#"class="rounded-lg bg-red-500">Favs</a>
+            </nav>
+    </header>
+    <main class=" flex flex-col bg-red-900">
+        <h2 id="fuente" class="text-center text-4xl font-bold my-4">Favs</h2>
+        <div id="contenedor2" class="flex flex-col items-center place-content-center">
+            <label for="generos" id="label" class="m-6">
+                <input type="text" id="buscar" value="" placeholder="Enter a title here">
+                <select name="generos" id="generos" class="bg-red-500">
+                    <option value="all">All</option>
+
+                </select>
+            </label>
+            <ul id="lista-pelis" class="flex flex-wrap place-content-center gap-6">
+
+            </ul>
+
+        </div>
+        <div id="contenedor-favs" class="flex flex-wrap place-content-center gap-6">
+
+        </div>
+    </main>
+    <footer id="fuente" class="bg-red-700 text-center text-lg font-bold flex justify-center">
+        <p>Camila Cein - Mind Hub - Cohort 52</p>
+    </footer>
+    <script src="./tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="./favs.js"></script>
+    
+</body>
+</html>

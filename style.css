@@ -1,0 +1,30 @@
+
+main{
+    padding-bottom: 10%;
+    min-height: 80%;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    min-height: 10%;
+}
+header{
+    min-height: 10%;
+ }
+
+
+#letra {
+    font-family: 'Bungee', sans-serif;
+}
+#fuente{
+    font-family: 'Mate SC', serif;
+}
+#alice{
+    font-family: 'Alice', serif;
+}
+select{
+    font-family: 'Mate SC', serif;
+    font-weight: 700;
+}

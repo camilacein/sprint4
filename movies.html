@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="shortcut icon" href="images/cinema.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Bungee&family=Mate+SC&display=swap"
+        rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cinema Star</title>
+</head>
+
+<body>
+    <div id="app" >
+   
+        <header class=" bg-red-700 flex  flex-wrap items-center justify-center h-26 md:space-x-96">
+            <div class="flex items-center md:mx-10 gap-4">
+                <img src="images/cinema.png" class="w-20 h-20 object-contain md:mx-2" alt="logo">
+                <h1 id="letra" class="text-3xl md:text-5xl">Cinema Star</h1>
+            </div>
+
+
+            <nav class="flex gap-8 text-2xl font-bold" id="fuente">
+                <a href="index.html">Home</a>
+                <a href="#" class="rounded-lg bg-red-500">Movies</a>
+                <a href="favs.html">Favs</a>
+            </nav>
+
+
+
+        </header>
+        <main class=" flex flex-col bg-red-900">
+            <h2 id="fuente" class="text-4xl font-bold my-4">Movies</h2>
+            <div id="contenedor2" class="flex flex-col items-center place-content-center">
+                
+                <label for="generos" id="label" class="m-6">
+                    <input type="text" id="buscar" value="" placeholder="Enter a title here">
+                    <select name="generos" id="generos" class="bg-red-500">
+                        <option value="all">All</option>
+                        <template v-if="genres.length > 0" v-for="genre in genres" >
+                        <option value="{{genre}}">{{genre}}</option>
+                    </template>
+
+                    </select>
+                </label>
+            
+                <div class="flex flex-wrap gap-6 place-content-center" >
+                <template v-if="movies.length > 0" v-for="movie in movies" >
+                        <article class="article flex flex-col items-center w-[300px] h-[650px] bg-red-500 rounded-lg">
+                            <button data-accion="fav" data-id="123" class="btn">
+                                <img id="like" data-accion="fav" data-id="123" src="images/like.png" alt=""
+                                    class="mt-2 w-[30px] h-[30px]">
+                            </button>
+                            <img v-bind:src="'https://moviestack.onrender.com/static/'+movie.image" alt="" class="
+                                h-42 my-4 object-contein ">
+                        <h2 id=" fuente" class="text-xl font-bold text-center">{{movie.title}}</h2>
+                            <h3 id="fuente" class="text-lg font-bold text-center">{{movie.tagline}}</h3>
+                            <p id="alice"
+                                class="text-center text-lg whitespace-no-wrap overflow-hidden text-overflow-ellipsis max-w-200">
+                                {{movie.overview}}</p>
+                            <a href="./detalles.html?id=${movie.id}" id="alice"
+                                class="bg-red-700 rounded-lg">Details</a>
+                        </article>
+
+                    
+                </template>
+                </div>
+            
+
+          
+
+
+
+        </main>
+        <footer id="fuente" class="bg-red-700 text-center text-lg font-bold flex justify-center ">
+            <p>Camila Cein - Mind Hub - Cohort 52</p>
+        </footer>
+    </div>
+    <script src="./tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+   
+ 
+    <script type="module" src="./movies.js"></script>
+
+
+
+</body>
+
+</html>
