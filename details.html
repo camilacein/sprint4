@@ -13,6 +13,7 @@
     <title>Cinema Star</title>
 </head>
 <body>
+    <div id="app" >
     <header class=" bg-red-700 flex  flex-wrap items-center justify-center h-26 md:space-x-96 ">
         <div class="flex items-center md:mx-10 gap-4">
             <img src="images/cinema.png" class="w-20 h-20 object-contain md:mx-2" alt="logo">
@@ -32,8 +33,60 @@
     <main class=" flex flex-col bg-red-900">
       <h2 id="fuente" class="text-4xl font-bold text-center">Movie</h2>
       <div id="contenedor3" class="flex items-center flex-col bg-red-500 m-6">
+        <template v-if="pelis!= ''" >
        
-        
+        <div class="flex m-9 flex-wrap justify-center">
+            <div class="flex">
+            <img class="h-92 object-contain" v-bind:src="'https://moviestack.onrender.com/static/'+pelis.image+'.jpg'" alt="">
+            </div>
+              
+              <div class="flex flex-col md:h-1/3 md:w-1/3">
+              <h2 id="fuente" class="text-3xl text-center" >{{pelis.title}}</h2>
+              <h3 id="fuente" class="text-center text-2xl" >{{pelis.tagline}}</h3>
+              <p id="alice" class="text-xl">{{pelis.overview}}</p>
+              </div>
+              
+            </div>
+            
+            <div class="flex flex-wrap justify-center">
+            <table id="alice" class="border border-collapse border-black w-[270px] h-[270px] sm:w-[400px] sm:h-[400px]  text-2xl text-center m-9">
+              <tbody>
+                <tr class="border border-black">
+                  <td class="bg-red-700">Original Language</td>
+                  <td>{{pelis.original_language}}</td>
+                </tr>
+                <tr class="border border-black">
+                  <td class="bg-red-700">Release Date</td>
+                  <td>{{formatDate}}</td>
+                </tr>
+                <tr class="border border-black">
+                  <td class="bg-red-700">Runtime</td>
+                  <td >{{pelis.runtime}}</td>
+                </tr>
+                <tr class="border border-black">
+                  <td class="bg-red-700">Status</td>
+                  <td>{{pelis.status}}</td>
+                </tr>
+                </tbody>
+                </table>
+                  <table id="alice" class=" border border-collapse border-black w-[270px] sm:w-[400px] sm:h-[400px] h-[270px] text-2xl text-center m-9" >
+                  <tbody>
+                  <tr class=" border border-black" >
+                  <td class="bg-red-700">Vote Average</td>
+                  <td>{{pelis.vote_average}}</td>
+                </tr>
+                <tr class=" border border-black">
+                  <td class="bg-red-700">Budget</td>
+                  <td>USD$ {{pelis.budget}}</td>
+                </tr>
+                <tr class="border border-black" >
+                  <td class="bg-red-700">Revenue</td>
+                  <td>USD$ {{pelis.revenue}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+        </template>
       </div>
       
     </main>
@@ -41,9 +94,9 @@
         <p>Camila Cein - Mind Hub - Cohort 52</p>
     </footer>
 
-    <script type="module" src="movie.js"></script>
-    <script src="./details.js"></script>
+</div>
     <script type="module" src="./tailwind.config.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="details.js"></script>
 </body>
 </html>
