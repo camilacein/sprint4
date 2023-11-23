@@ -5,9 +5,7 @@ const option = {
         'x-api-key': key
     }
 }
-const search = location.search
-const params = new URLSearchParams(search)
- const id = params.get("id")
+
 
 const { createApp } = Vue
 const optionsVue = {
@@ -18,8 +16,8 @@ const optionsVue = {
             selected:"all",
             search:"",
             moviesFiltradas:[],
-            filtrarId:[],
-        }
+            favs:[],
+                }
 
     },
      beforeCreate() {
@@ -30,7 +28,7 @@ const optionsVue = {
                     this.movies = data.movies
                     this.moviesFiltradas = this.movies
                     this.genres = [...new Set(this.movies.map(movie => movie.genres).flat())]
-                    this.filtrarId= this.movies.find(movie => movie.id == id)
+                    
                  
                     
 
@@ -50,6 +48,24 @@ const optionsVue = {
         filtrar(){
             this.moviesFiltradas = this.movies.filter(movie => movie.title.toLowerCase().includes(this.search.toLowerCase())&&(this.selected ==="all"||movie.genres.includes(this.selected)))
         },
+        fav(movie){
+            let favoritas = JSON.parse(localStorage.getItem('favs')) || []
+            console.log(favoritas)
+            const peliFav = favoritas.some( favorita => favorita.id === movie.id)
+      
+          
+            if(!peliFav){
+            favoritas.push({id: movie.id})
+          
+            
+            } else {
+              if (peliFav){
+                favoritas = favoritas.filter(favorita => favorita.id !== movie.id)
+            
+                
+              }
+            }
+            localStorage.setItem('favs', JSON.stringify(favoritas))}
     },
 }
 const app = createApp(optionsVue)
